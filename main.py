@@ -27,6 +27,10 @@ def main():
     c.print_df()
     c.print_array()
     c.print_list(5)
+    print('c.df.iloc[0:2]:')
+    print(c.df.iloc[0:2])
+    print('c.df.loc[0:2]:')
+    print(c.df.loc[0:2])
 
 if __name__ == '__main__':
     main()
