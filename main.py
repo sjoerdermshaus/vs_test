@@ -4,7 +4,7 @@ import numpy as np
 
 class C:
     def __init__(self):
-        self.df = pd.DataFrame(dict(A=[1, 2, 3]))
+        self.df = pd.DataFrame(dict(A=[1, 2, 3], B=['a', 'b', 'c']))
     
     def print_df(self):
         print(self.df)
