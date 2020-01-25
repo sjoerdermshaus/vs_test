@@ -9,14 +9,24 @@ class C:
     def print_df(self):
         print(self.df)
 
-    def print_array(self):
+    @staticmethod
+    def print_array():
         a = np.array([4, 5, 6])
         print(a)
+
+    @staticmethod
+    def print_list():
+        l = [1, 2, 3, 4]
+        print(2 * l)
+        print([2 * i for i in l])
+        b = 2 * np.array(l)
+        print(b.tolist())
 
 def main():
     c = C()
     c.print_df()
     c.print_array()
+    c.print_list()
 
 if __name__ == '__main__':
     main()
