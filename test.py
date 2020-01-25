@@ -15,8 +15,8 @@ class C:
         print(a)
 
     @staticmethod
-    def print_list():
-        l = [1, 2, 3, 4]
+    def print_list(c=4):
+        l = [1, 2, 3, c]
         print(2 * l)
         print([2 * i for i in l])
         b = 2 * np.array(l)
@@ -26,7 +26,7 @@ def main():
     c = C()
     c.print_df()
     c.print_array()
-    c.print_list()
+    c.print_list(5)
 
 if __name__ == '__main__':
     main()
