@@ -12,7 +12,7 @@ class C:
 
     @staticmethod
     def print_array():
-        a = np.array([4, 5, 6])
+        a = np.array([4, 5, 6, 7])
         print(a)
 
     @staticmethod
@@ -36,4 +36,5 @@ def main():
     plt.show()
 
 if __name__ == '__main__':
+    main()
     main()
