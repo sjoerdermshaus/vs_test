@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class C:
@@ -31,6 +32,8 @@ def main():
     print(c.df.iloc[0:2])
     print('c.df.loc[0:2]:')
     print(c.df.loc[0:2])
+    plt.plot(c.df['A'])
+    plt.show()
 
 if __name__ == '__main__':
     main()
