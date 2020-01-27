@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+import multiprocessing as mp
+from time import sleep
 
 class C:
     def __init__(self):
@@ -35,6 +36,21 @@ def main():
     plt.plot(c.df['A'])
     plt.show()
 
+def f(x):
+    sleep(0.1)
+    return 2 * x
+
+def multi(ncpus=2, n=100, how='star'):
+    with mp.Pool(ncpus) as p:
+        if how == 'starmap':
+            j = [(i,) for i in range(n)]
+            g = p.starmap(f, j)
+        elif how == 'map':
+            g = p.map(f, range(n))
+        else:
+            g = [f(i) for i in range(n)]
+    return g
+
+
 if __name__ == '__main__':
-    main()
-    main()
+    print(multi(ncpus=4, n=100, how='star'))
