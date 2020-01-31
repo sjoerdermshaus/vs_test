@@ -23,7 +23,7 @@ class C:
         print(2 * l)
         print([2 * i for i in l])
         d = 2 * np.array(l)
-        print(d.tolist())
+        print(d.sum())
 
 def main():
     c = C()
