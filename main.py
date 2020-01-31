@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import multiprocessing as mp
-from time import sleep
+from time import sleep, perf_counter
+import sys
 
 class C:
     def __init__(self):
@@ -42,15 +43,21 @@ def f(x):
 
 def multi(ncpus=2, n=100, how='star'):
     with mp.Pool(ncpus) as p:
+        t = perf_counter()
         if how == 'starmap':
-            j = [(i,) for i in range(n)]
+            j = ((i,) for i in range(n))
             g = p.starmap(f, j)
         elif how == 'map':
             g = p.map(f, range(n))
         else:
             g = [f(i) for i in range(n)]
+        print(perf_counter() - t)
     return g
 
 
 if __name__ == '__main__':
-    print(multi(ncpus=4, n=100, how='star'))
+    try:
+        for how in ['starmap', 'map', 'else']:
+            multi(ncpus=4, n=12, how=how)
+    except KeyboardInterrupt as e:
+        sys.exit('Jammer!')
