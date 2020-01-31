@@ -22,8 +22,8 @@ class C:
         l = [1, 2, 3, c]
         print(2 * l)
         print([2 * i for i in l])
-        c = 2 * np.array(l)
-        print(c.tolist())
+        d = 2 * np.array(l)
+        print(d.tolist())
 
 def main():
     c = C()
